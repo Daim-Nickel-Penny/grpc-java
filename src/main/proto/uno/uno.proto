@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package uno;
+
+option java_package = "com.proto.uno";
+option java_multiple_files = true;
+
+message UnoMessage {}
+
+
+service  UnoService{}
