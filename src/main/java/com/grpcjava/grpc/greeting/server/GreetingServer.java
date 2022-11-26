@@ -8,12 +8,15 @@ import java.io.IOException;
 
 public class GreetingServer {
     public static void main(String[] args) throws IOException, InterruptedException {
-        System.out.println("hello");
+        System.out.println("Server Start");
 
-        Server server = ServerBuilder.forPort(50051).build();
+        Server server = ServerBuilder.forPort(50051).
+                addService(new GreetServiceImpl()).
+                build();
 
 
         server.start();
+
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
             System.out.println("Recieved shutdown");
             server.shutdown();
