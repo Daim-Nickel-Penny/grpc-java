@@ -44,7 +44,21 @@ public class GreetingClient {
         */
 
 
+        // Server Streaming
+        // prepare request
+        GreetManyTimesRequest greetManyTimesRequest =
+                GreetManyTimesRequest.newBuilder()
+                                .setGreeting(Greeting.newBuilder().setFirstName("Foo"))
+                                        .build();
 
+        //stream response (in a blocking manner)
+        greetClient.greetManyTimes(greetManyTimesRequest)
+                        .forEachRemaining(greetManyTimesResponse -> {
+                            System.out.println(greetManyTimesResponse.getResult());
+                        });
+
+        System.out.println("Shutting Channel");
+        channel.shutdown();
 
     }
 }
