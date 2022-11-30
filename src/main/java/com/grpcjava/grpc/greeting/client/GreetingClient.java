@@ -1,9 +1,6 @@
 package com.grpcjava.grpc.greeting.client;
 
-import com.proto.greet.GreetRequest;
-import com.proto.greet.GreetResponse;
-import com.proto.greet.GreetServiceGrpc;
-import com.proto.greet.Greeting;
+import com.proto.greet.*;
 import com.proto.uno.UnoServiceGrpc;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
@@ -25,6 +22,9 @@ public class GreetingClient {
         GreetServiceGrpc.GreetServiceBlockingStub greetClient =
                 GreetServiceGrpc.newBlockingStub(channel);
 
+         /*
+        //Unary
+
         // created a protocol buffer greeting message
         Greeting greeting = Greeting.newBuilder()
                 .setFirstName("Foo")
@@ -41,9 +41,10 @@ public class GreetingClient {
         GreetResponse greetResponse = greetClient.greet(greetRequest);
 
         System.out.println(greetResponse.getResult());
+        */
 
-        System.out.println("Shutting Channel");
-        channel.shutdown();
+
+
 
     }
 }
