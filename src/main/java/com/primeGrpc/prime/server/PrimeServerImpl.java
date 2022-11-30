@@ -25,7 +25,7 @@ public class PrimeServerImpl extends PrimeServiceGrpc.PrimeServiceImplBase {
                     PrimeResponse response = PrimeResponse.newBuilder().setResult(c).build();
                     responseObserver.onNext(response);
                     number /= c;
-                    Thread.sleep(500L);
+                    Thread.sleep(1000L);
                 }
                 else
                     c++;
