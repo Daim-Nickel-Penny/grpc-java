@@ -1,11 +1,10 @@
-package com.grpcjava.grpc.greeting.client;
-
+package com.greetGrpc.greet.client;
 import com.proto.greet.*;
 import com.proto.uno.UnoServiceGrpc;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 
-public class GreetingClient {
+public class GreetClient {
     public static void main(String[] args) {
         System.out.println("Client Start");
 
@@ -24,7 +23,6 @@ public class GreetingClient {
 
          /*
         //Unary
-
         // created a protocol buffer greeting message
         Greeting greeting = Greeting.newBuilder()
                 .setFirstName("Foo")
@@ -34,12 +32,9 @@ public class GreetingClient {
         GreetRequest greetRequest = GreetRequest.newBuilder()
                 .setGreeting(greeting)
                 .build();
-
-
         // call the RPC and get back a GreetResponse (protocol buffers )
         // this greet is coming from greetServer
         GreetResponse greetResponse = greetClient.greet(greetRequest);
-
         System.out.println(greetResponse.getResult());
         */
 
@@ -48,14 +43,14 @@ public class GreetingClient {
         // prepare request
         GreetManyTimesRequest greetManyTimesRequest =
                 GreetManyTimesRequest.newBuilder()
-                                .setGreeting(Greeting.newBuilder().setFirstName("Foo"))
-                                        .build();
+                        .setGreeting(Greeting.newBuilder().setFirstName("Foo"))
+                        .build();
 
         //stream response (in a blocking manner)
         greetClient.greetManyTimes(greetManyTimesRequest)
-                        .forEachRemaining(greetManyTimesResponse -> {
-                            System.out.println(greetManyTimesResponse.getResult());
-                        });
+                .forEachRemaining(greetManyTimesResponse -> {
+                    System.out.println(greetManyTimesResponse.getResult());
+                });
 
         System.out.println("Shutting Channel");
         channel.shutdown();

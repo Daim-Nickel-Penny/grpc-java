@@ -1,4 +1,4 @@
-package com.grpcjava.grpc.greeting.server;
+package com.greetGrpc.greet.server;
 
 import com.proto.greet.*;
 import io.grpc.stub.StreamObserver;

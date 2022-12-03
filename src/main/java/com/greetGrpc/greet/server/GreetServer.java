@@ -1,12 +1,10 @@
-package com.grpcjava.grpc.greeting.server;
-
+package com.greetGrpc.greet.server;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 
 
 import java.io.IOException;
-
-public class GreetingServer {
+public class GreetServer {
     public static void main(String[] args) throws IOException, InterruptedException {
         System.out.println("Server Start");
 
