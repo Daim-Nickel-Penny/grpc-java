@@ -30,7 +30,10 @@ public class ComputeAverageImpl extends ComputeAverageServiceGrpc.ComputeAverage
 
             @Override
             public void onCompleted() {
-                result = sum/count;
+                double sD = sum;
+                double cD = count;
+                result = sD/cD;
+                //System.out.println(count+"  "+sum+"  "+result);
 
                 responseObserver.onNext(
                         ComputeAverageResponse.newBuilder()

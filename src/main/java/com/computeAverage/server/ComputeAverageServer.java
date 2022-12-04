@@ -8,7 +8,7 @@ import java.io.IOException;
 public class ComputeAverageServer {
     public static void main(String[] args) throws IOException, InterruptedException {
 
-        Server server = ServerBuilder.forPort(3000).build();
+        Server server = ServerBuilder.forPort(3000).addService(new ComputeAverageImpl()).build();
         server.start();
 
         System.out.println("Server Started");
